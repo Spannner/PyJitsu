@@ -1,4 +1,13 @@
 from enum import Enum
+
+class CardColor(Enum):
+    RED = 0
+    BLUE = 1
+    YELLOW = 2
+    GREEN = 3
+    ORANGE = 4
+    PURPLE = 5
+
 class CardEffect(Enum):
     NONE = 0
     
@@ -31,3 +40,22 @@ class CardEffect(Enum):
     FIRETOSNOW # When played, all fire cards become snow for the current round.
     WATERTOFIRE # When played, all water cards become fire for the current round.
     SNOWTOWATER # When played, all snow cards become water for the current round.
+
+class CardElement(Enum):
+    FIRE = 0
+    WATER = 1
+    SNOW = 2
+
+class Card:
+    def __init__(self, element, color, number): # TODO: Powers
+        
+        if not isinstance(element,CardElement):
+            raise TypeError
+        if not isinstance(color,CardColor):
+            raise TypeError
+        if not isinstance(number,int):
+            raise TypeError
+        
+        self.element = element
+        self.color = color
+        self.number = number
